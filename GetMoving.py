@@ -11,12 +11,15 @@ def alarm(sound_file_path):
         play_custom_sound(sound_file_path)
 
 # Accepts a time in second and then puts program to sleep for that long 
-#TODO "1.0 minutes remaining"
-#TODO remove ".0" from minutes remaining 
 def sleep (timer) :
     for i in range(0, timer):
         if (i % 60 == 0):
-            print(str(timer / 60 - i / 60) + " minutes remaining")
+            # TODO test this line of code
+            if (timer - i == 60) :
+                print("1 minute remaining")
+            else:
+                print(str(int(timer / 60 - i / 60)) + " minutes remaining")
+            
         time.sleep(1)
     return
 
