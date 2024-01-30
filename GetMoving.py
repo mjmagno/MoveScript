@@ -18,10 +18,10 @@ def sleep (timer) :
         if (i % 60 == 0):
             print(str(timer / 60 - i / 60) + " minutes remaining")
         time.sleep(1)
+    return
 
 
 if __name__ == "__main__":
-    t1 = threading.Thread(target=alarm,args=("WhoseGonnaCarryTheBoats.wav",))
     print("Enter a mode (Gaming or Coding)")
     #If mode is coding, then set a variable time for each alarm     
     #If mode is gaming, set a constant 30 minute timer 
@@ -37,6 +37,7 @@ if __name__ == "__main__":
             minutes = input(">> ")
         seconds = int(minutes) * 60
         sleep(seconds)
+        t1 = threading.Thread(target=alarm,args=("WhoseGonnaCarryTheBoats.wav",))
         t1.start()
         # Not sure if I like how this is implented, a while seems weird but using an if statement
         # will result in the program infinite looping if the user misinputs
@@ -53,3 +54,5 @@ if __name__ == "__main__":
 # Convert time remaining to int 
 # Error handling
 # Different alarms 
+# Bug with starting a thread again when looping code
+# Automated testing? 
